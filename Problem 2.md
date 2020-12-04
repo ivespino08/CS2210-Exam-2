@@ -9,49 +9,49 @@ Step 1. Define recursively
 		For even length strings:
 			The second half of the strings must be a mirror of the first half
 
-For odd length strings:
-The characters after the middle character must be a mirror of the characters before the middle character
+		For odd length strings:
+			The characters after the middle character must be a mirror of the characters before the middle character
 
 		For all strings:
-Remove one of the characters in the string and recursively call the remaining substring, repeat for all characters in the string. (e.g. string ‘abc’, recursively call ‘bc’, then ‘ac’, then ‘ab’)
+			Remove one of the characters in the string and recursively call the remaining substring, repeat for all characters in the string. (e.g. string ‘abc’, 	recursively call ‘bc’, then ‘ac’, then ‘ab’)
 
 Step 2. Data Structures used
 
-For this problem a simple list/array data structure can be used. If a substring is found to be a palindrome, then it gets added. If the program encounters that substring again, then it and all substrings of that substring are skipped.
+	For this problem a simple list/array data structure can be used. If a substring is found to be a palindrome, then it gets added. If the program encounters that substring again, then it and all substrings of that substring are skipped.
 
 Step 3. IDEAL/Duke 7
 	
 	IDEAL:
 		I: Identify the problem
-To identify, store, and output all substring of a given string which are palindromes, using dynamic programming 
+			To identify, store, and output all substring of a given string which are palindromes, using dynamic programming 
 
-			D: Define your goals
-Identify if the string is a palindrome
-Recursively call all substrings of that substring
-Return only the substrings which are palindrome
-Integrate dynamic programming through the use of data structures to store previously identified substrings
-			E: Explore possible solutions
-The overall code was fairly easy to come up for this problem, but choosing what data structure to integrate took a bit longer. I originally used a list but that was becoming too tedious so I switched instead to a dictionary, which turned out to be easier to use
-			A: Anticipate and Act
-Making sure to account for empty strings and strings where palindromes overlap is absolutely crucial. The first one is an easy fix, the second one though might take a bit of unusual coding.
-			L: Look and Learn
+		D: Define your goals
+			Identify if the string is a palindrome
+			Recursively call all substrings of that substring
+			Return only the substrings which are palindrome
+			Integrate dynamic programming through the use of data structures to store previously identified substrings
+		E: Explore possible solutions
+			The overall code was fairly easy to come up for this problem, but choosing what data structure to integrate took a bit longer. I originally used a list but that was becoming too tedious so I switched instead to a dictionary, which turned out to be easier to use
+		A: Anticipate and Act
+			Making sure to account for empty strings and strings where palindromes overlap is absolutely crucial. The first one is an easy fix, the second one though might take a bit of unusual coding.
+		L: Look and Learn
 Working with strings seems incredibly more complicated than working with other structures. So working with them may be necessary to improve my skills there
 		
-		Duke 7:
-			1: Work small instance by hand
-Given input ‘aba’, ‘aba’ is a palindrome, ‘ab’ and ‘ba’ are not palindromes, and ‘a’, ‘b’, and ‘a’ are palindromes, so there are 4 palindromes in ‘aba’.
-			2:  Write process
-Determine if string is a palindrome, then partition into smaller substrings, then repeat
-			3: Find patterns
-If it is a palindrome, add to palindrome count. Recursively call each substring of the string.
-			4: Check by hand
-				String ‘aba’ returns 4, and string ‘abc’ return 3
-			5: Write code
-				Written
-			6: Run test cases
-Run using ‘abc’, ‘ ’, and ‘aaa’. First two work, last one is having issues due to overlapping
-			7: Debug
-				Debugging in progress
+	Duke 7:
+		1: Work small instance by hand
+			Given input ‘aba’, ‘aba’ is a palindrome, ‘ab’ and ‘ba’ are not palindromes, and ‘a’, ‘b’, and ‘a’ are palindromes, so there are 4 palindromes in ‘aba’.
+		2:  Write process
+			Determine if string is a palindrome, then partition into smaller substrings, then repeat
+		3: Find patterns
+			If it is a palindrome, add to palindrome count. Recursively call each substring of the string.
+		4: Check by hand
+			String ‘aba’ returns 4, and string ‘abc’ return 3
+		5: Write code
+			Written
+		6: Run test cases
+			Run using ‘abc’, ‘ ’, and ‘aaa’. First two work, last one is having issues due to overlapping
+		7: Debug
+			Debugging in progress
 
 Step 4: Code
 def palindrome_substrings(S, D, shift=0):
