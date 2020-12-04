@@ -54,7 +54,7 @@ Working with strings seems incredibly more complicated than working with other s
 			Debugging in progress
 
 Step 4: Code
-def palindrome_substrings(S, D, shift=0):
+def palindrome_substrings(S, D, shift=0): #D is a dictionary from the hash file. Write h = Hash.Dictioary(len(string)) to make it
     if len(S) < 1:
         return 0
     
