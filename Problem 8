@@ -50,7 +50,7 @@ Problem 8: Perfect Squares
 				Debugging complete
         
  Step 4: Code
- def perfect_squares(num, D): #D is a dictionary from the Hash file
+ def perfect_squares(num, D): #D is a dictionary from the Hash file. Write before calling this code h = Hash.Dictioary(num) to make it
     if num == 0:
         return 0
     
