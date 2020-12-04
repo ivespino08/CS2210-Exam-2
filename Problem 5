@@ -5,48 +5,48 @@ Step 1: Define recursively
 		Return 0 if length of chain is 0
 
 	Recursive case:
-Remove a pair from the chain whose smaller number is larger than the larger number of the previous pair and recursively call what remains, repeat for all pairs that satisfy the conditions (i.e. if chain is [[2,3], [4,5]] and previous pair is [0,1], call [4,5] first then, [1,2])
+		Remove a pair from the chain whose smaller number is larger than the larger number of the previous pair and recursively call what remains, repeat for all pairs that satisfy the conditions (i.e. if chain is [[2,3], [4,5]] and previous pair is [0,1], call [4,5] first then, [1,2])
 
-When returning compare the returned chain lengths, return the larger one
+		When returning compare the returned chain lengths, return the larger one
 
 Step 2: Data Structure use
-A matrix can be used to store the chain length of each pair. By making it a 1000x1000 matrix we can map the chain length of each pair to a position on the matrix. It has to be 1000x1000 because the range of the numbers in the pairs is 1 to 1000.
+		A matrix can be used to store the chain length of each pair. By making it a 1000x1000 matrix we can map the chain length of each pair to a position on the matrix. It has to be 1000x1000 because the range of the numbers in the pairs is 1 to 1000.
 
 Step 3: IDEAL/Duke 7
-		IDEAL:
+	IDEAL:
 		I: Identify the problem
-To count the maximum length of a chain of pairs, using dynamic programming to not repeat pair assignments
+			To count the maximum length of a chain of pairs, using dynamic programming to not repeat pair assignments
 
-			D: Define your goals
-Identify if the smallest number in a pair is larger than the largest number of the previous pair
-Recursively call the remaining pairs
-Return the largest possible number of pairs chained together
-Use dynamic programming to store and access previous chain lengths 
-			E: Explore possible solutions
-Once again, the code itself wasn’t hard to come up with but figuring out that a matrix was viable for dynamic programming took a bit.
-			A: Anticipate and Act
-Making sure to account for empty lists of pairs. Easy fix
-			L: Look and Learn
-Once again, I have to make sure that I don’t hyperfocus on forcefully trying to make one particular method work. I have to keep an open mind.
-		Duke 7:
-			1: Work small instance by hand
-Given input [[1,2], [2,3], [3,4]], [[1,2], [3,4]] is a chain, [2,3] is a chain, and [3,4] is a chain, so the chain [[1,2], [3,4]] is the largest at size 2.
-			2:  Write process
-Determine if pair is larger then previous pair, then repeat for remaining pairs in terms of current pair, then repeat
-			3: Find patterns
-If it is a larger pair, add it to the chain.
-Recursively call the rest of the chain.
-Loop previous steps for every pair in a list
-Return size of the largest chain
+		D: Define your goals
+			Identify if the smallest number in a pair is larger than the largest number of the previous pair
+			Recursively call the remaining pairs
+			Return the largest possible number of pairs chained together
+			Use dynamic programming to store and access previous chain lengths 
+		E: Explore possible solutions
+			Once again, the code itself wasn’t hard to come up with but figuring out that a matrix was viable for dynamic programming took a bit.
+		A: Anticipate and Act
+			Making sure to account for empty lists of pairs. Easy fix
+		L: Look and Learn
+			Once again, I have to make sure that I don’t hyperfocus on forcefully trying to make one particular method work. I have to keep an open mind.
+	Duke 7:
+		1: Work small instance by hand
+			Given input [[1,2], [2,3], [3,4]], [[1,2], [3,4]] is a chain, [2,3] is a chain, and [3,4] is a chain, so the chain [[1,2], [3,4]] is the largest at size 2.
+		2:  Write process
+			Determine if pair is larger then previous pair, then repeat for remaining pairs in terms of current pair, then repeat
+		3: Find patterns
+			If it is a larger pair, add it to the chain.
+			Recursively call the rest of the chain.
+			Loop previous steps for every pair in a list
+			Return size of the largest chain
 
-			4: Check by hand
-				 [[1,2], [2,3], [3,4]] returns 2, and [1,2], [3,4], [5,6] returns 3
-			5: Write code
-				Written
-			6: Run test cases
-Run using [], [[1,2], [2,3], [3,4]], and  [[2,3], [1,2], [3,4]]. All working correctly
-			7: Debug
-				Debugging complete
+		4: Check by hand
+			 [[1,2], [2,3], [3,4]] returns 2, and [1,2], [3,4], [5,6] returns 3
+		5: Write code
+			Written
+		6: Run test cases
+			Run using [], [[1,2], [2,3], [3,4]], and  [[2,3], [1,2], [3,4]]. All working correctly
+		7: Debug
+			Debugging complete
 
 Step 4: Code
 def max_pair_chain(L, M, n=0): #M is a 1000x1000 numpy matrix
