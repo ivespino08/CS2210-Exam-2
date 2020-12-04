@@ -49,7 +49,7 @@ Run using 6, and 10. All working correctly
 				Debugging complete
         
  Step 4: Code
- def integer_break(num, D): #D is a dictionary from Hash file
+ def integer_break(num, D): #D is a dictionary from the Hash file. Write before calling this code h = Hash.Dictioary(num) to make it
     if D.search(num):
         return D.read(num)
     
